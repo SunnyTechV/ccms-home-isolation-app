@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20220201085151",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "assessment_answers",
+  "fields": [
+    {
+      "fieldName": "answer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "AssessmentAnswers",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "questions",
+      "otherEntityRelationshipName": "assessmentAnswers",
+      "ownerSide": true,
+      "relationshipName": "questions",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "assessment",
+      "otherEntityRelationshipName": "assessmentAnswers",
+      "relationshipName": "assessment",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

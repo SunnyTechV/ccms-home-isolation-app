@@ -1,0 +1,28 @@
+{
+  "ccmsHomeIsolationApp": {
+    "assessmentAnswers": {
+      "home": {
+        "title": "Assessment Answers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Assessment Answers",
+        "createOrEditLabel": "Create or edit a Assessment Answers",
+        "notFound": "No Assessment Answers found"
+      },
+      "created": "A new Assessment Answers is created with identifier {{ param }}",
+      "updated": "A Assessment Answers is updated with identifier {{ param }}",
+      "deleted": "A Assessment Answers is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Assessment Answers {{ id }}?"
+      },
+      "detail": {
+        "title": "Assessment Answers"
+      },
+      "id": "ID",
+      "answer": "Answer",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "questions": "Questions",
+      "assessment": "Assessment"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "ccmsHomeIsolationApp": {
+    "isolationsDetails": {
+      "home": {
+        "title": "Isolations Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Isolations Details",
+        "createOrEditLabel": "Create or edit a Isolations Details",
+        "notFound": "No Isolations Details found"
+      },
+      "created": "A new Isolations Details is created with identifier {{ param }}",
+      "updated": "A Isolations Details is updated with identifier {{ param }}",
+      "deleted": "A Isolations Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Isolations Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Isolations Details"
+      },
+      "id": "ID",
+      "isolationStartDate": "Isolation Start Date",
+      "isolationEndDate": "Isolation End Date",
+      "referredDrName": "Referred Dr Name",
+      "referredDrMobile": "Referred Dr Mobile",
+      "prescriptionUrl": "Prescription Url",
+      "reportUrl": "Report Url",
+      "remarks": "Remarks",
+      "selfRegistered": "Self Registered",
+      "lastAssessment": "Last Assessment",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "homeIsolations": "Home Isolations"
+    }
+  }
+}
