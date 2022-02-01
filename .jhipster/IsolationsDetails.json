@@ -1,0 +1,68 @@
+{
+  "applications": "*",
+  "changelogDate": "20220201085147",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "isolations_details",
+  "fields": [
+    {
+      "fieldName": "isolationStartDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isolationEndDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "referredDrName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "referredDrMobile",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prescriptionUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reportUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remarks",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "selfRegistered",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastAssessment",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "IsolationsDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "homeIsolations",
+      "otherEntityRelationshipName": "isolationsDetails",
+      "ownerSide": false,
+      "relationshipName": "homeIsolations",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

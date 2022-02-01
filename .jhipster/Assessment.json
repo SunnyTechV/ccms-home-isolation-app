@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20220201085148",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "assessment",
+  "fields": [
+    {
+      "fieldName": "assessmentDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Assessment",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "assessmentAnswers",
+      "otherEntityRelationshipName": "assessment",
+      "relationshipName": "assessmentAnswers",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "homeIsolations",
+      "otherEntityRelationshipName": "assessment",
+      "relationshipName": "homeIsolations",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

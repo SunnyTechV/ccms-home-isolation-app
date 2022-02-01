@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="isolationsDetails">
+      <h2 data-cy="isolationsDetailsDetailsHeading">
+        <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.detail.title">Isolations Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.isolationStartDate">Isolation Start Date</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.isolationStartDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.isolationEndDate">Isolation End Date</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.isolationEndDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.referredDrName">Referred Dr Name</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.referredDrName }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.referredDrMobile">Referred Dr Mobile</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.referredDrMobile }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.prescriptionUrl">Prescription Url</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.prescriptionUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.reportUrl">Report Url</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.reportUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.remarks">Remarks</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.remarks }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.selfRegistered">Self Registered</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.selfRegistered }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.lastAssessment">Last Assessment</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.lastAssessment | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ isolationsDetails.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/isolations-details', isolationsDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

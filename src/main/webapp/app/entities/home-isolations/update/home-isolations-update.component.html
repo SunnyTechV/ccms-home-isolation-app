@@ -1,0 +1,465 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-home-isolations-heading"
+        data-cy="HomeIsolationsCreateUpdateHeading"
+        jhiTranslate="ccmsHomeIsolationApp.homeIsolations.home.createOrEditLabel"
+      >
+        Create or edit a Home Isolations
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.icmrId" for="field_icmrId">Icmr Id</label>
+          <input type="text" class="form-control" name="icmrId" id="field_icmrId" data-cy="icmrId" formControlName="icmrId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.firstName" for="field_firstName"
+            >First Name</label
+          >
+          <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.lastName" for="field_lastName"
+            >Last Name</label
+          >
+          <input type="text" class="form-control" name="lastName" id="field_lastName" data-cy="lastName" formControlName="lastName" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.latitude" for="field_latitude"
+            >Latitude</label
+          >
+          <input type="text" class="form-control" name="latitude" id="field_latitude" data-cy="latitude" formControlName="latitude" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.longitude" for="field_longitude"
+            >Longitude</label
+          >
+          <input type="text" class="form-control" name="longitude" id="field_longitude" data-cy="longitude" formControlName="longitude" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.imageUrl" for="field_imageUrl"
+            >Image Url</label
+          >
+          <input type="text" class="form-control" name="imageUrl" id="field_imageUrl" data-cy="imageUrl" formControlName="imageUrl" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.activated" for="field_activated"
+            >Activated</label
+          >
+          <input type="checkbox" class="form-check" name="activated" id="field_activated" data-cy="activated" formControlName="activated" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.mobileNo" for="field_mobileNo"
+            >Mobile No</label
+          >
+          <input type="text" class="form-control" name="mobileNo" id="field_mobileNo" data-cy="mobileNo" formControlName="mobileNo" />
+          <div *ngIf="editForm.get('mobileNo')!.invalid && (editForm.get('mobileNo')!.dirty || editForm.get('mobileNo')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('mobileNo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.passwordHash" for="field_passwordHash"
+            >Password Hash</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="passwordHash"
+            id="field_passwordHash"
+            data-cy="passwordHash"
+            formControlName="passwordHash"
+          />
+          <div
+            *ngIf="editForm.get('passwordHash')!.invalid && (editForm.get('passwordHash')!.dirty || editForm.get('passwordHash')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('passwordHash')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ccmsHomeIsolationApp.homeIsolations.secondaryContactNo"
+            for="field_secondaryContactNo"
+            >Secondary Contact No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="secondaryContactNo"
+            id="field_secondaryContactNo"
+            data-cy="secondaryContactNo"
+            formControlName="secondaryContactNo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.aadharCardNo" for="field_aadharCardNo"
+            >Aadhar Card No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="aadharCardNo"
+            id="field_aadharCardNo"
+            data-cy="aadharCardNo"
+            formControlName="aadharCardNo"
+          />
+          <div
+            *ngIf="editForm.get('aadharCardNo')!.invalid && (editForm.get('aadharCardNo')!.dirty || editForm.get('aadharCardNo')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('aadharCardNo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'ccmsHomeIsolationApp.IsolationStatus.null' | translate }}</option>
+            <option *ngFor="let isolationStatus of isolationStatusValues" [value]="isolationStatus">
+              {{ 'ccmsHomeIsolationApp.IsolationStatus.' + isolationStatus | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.age" for="field_age">Age</label>
+          <input type="text" class="form-control" name="age" id="field_age" data-cy="age" formControlName="age" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.gender" for="field_gender">Gender</label>
+          <input type="text" class="form-control" name="gender" id="field_gender" data-cy="gender" formControlName="gender" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.stateId" for="field_stateId">State Id</label>
+          <input type="number" class="form-control" name="stateId" id="field_stateId" data-cy="stateId" formControlName="stateId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.districtId" for="field_districtId"
+            >District Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="districtId"
+            id="field_districtId"
+            data-cy="districtId"
+            formControlName="districtId"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.talukaId" for="field_talukaId"
+            >Taluka Id</label
+          >
+          <input type="number" class="form-control" name="talukaId" id="field_talukaId" data-cy="talukaId" formControlName="talukaId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.cityId" for="field_cityId">City Id</label>
+          <input type="number" class="form-control" name="cityId" id="field_cityId" data-cy="cityId" formControlName="cityId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.address" for="field_address">Address</label>
+          <input type="text" class="form-control" name="address" id="field_address" data-cy="address" formControlName="address" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.pincode" for="field_pincode">Pincode</label>
+          <input type="text" class="form-control" name="pincode" id="field_pincode" data-cy="pincode" formControlName="pincode" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.collectionDate" for="field_collectionDate"
+            >Collection Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_collectionDate"
+              data-cy="collectionDate"
+              type="datetime-local"
+              class="form-control"
+              name="collectionDate"
+              formControlName="collectionDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.hospitalized" for="field_hospitalized"
+            >Hospitalized</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="hospitalized"
+            id="field_hospitalized"
+            data-cy="hospitalized"
+            formControlName="hospitalized"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.hospitalId" for="field_hospitalId"
+            >Hospital Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="hospitalId"
+            id="field_hospitalId"
+            data-cy="hospitalId"
+            formControlName="hospitalId"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.addressLatitude" for="field_addressLatitude"
+            >Address Latitude</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="addressLatitude"
+            id="field_addressLatitude"
+            data-cy="addressLatitude"
+            formControlName="addressLatitude"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.addressLongitude" for="field_addressLongitude"
+            >Address Longitude</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="addressLongitude"
+            id="field_addressLongitude"
+            data-cy="addressLongitude"
+            formControlName="addressLongitude"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.currentLatitude" for="field_currentLatitude"
+            >Current Latitude</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="currentLatitude"
+            id="field_currentLatitude"
+            data-cy="currentLatitude"
+            formControlName="currentLatitude"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.currentLongitude" for="field_currentLongitude"
+            >Current Longitude</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="currentLongitude"
+            id="field_currentLongitude"
+            data-cy="currentLongitude"
+            formControlName="currentLongitude"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ccmsHomeIsolationApp.homeIsolations.hospitalizationDate"
+            for="field_hospitalizationDate"
+            >Hospitalization Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_hospitalizationDate"
+              data-cy="hospitalizationDate"
+              type="datetime-local"
+              class="form-control"
+              name="hospitalizationDate"
+              formControlName="hospitalizationDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.healthCondition" for="field_healthCondition"
+            >Health Condition</label
+          >
+          <select
+            class="form-control"
+            name="healthCondition"
+            formControlName="healthCondition"
+            id="field_healthCondition"
+            data-cy="healthCondition"
+          >
+            <option [ngValue]="null">{{ 'ccmsHomeIsolationApp.HealthCondition.null' | translate }}</option>
+            <option *ngFor="let healthCondition of healthConditionValues" [value]="healthCondition">
+              {{ 'ccmsHomeIsolationApp.HealthCondition.' + healthCondition | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.remarks" for="field_remarks">Remarks</label>
+          <input type="text" class="form-control" name="remarks" id="field_remarks" data-cy="remarks" formControlName="remarks" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.ccmsUserId" for="field_ccmsUserId"
+            >Ccms User Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="ccmsUserId"
+            id="field_ccmsUserId"
+            data-cy="ccmsUserId"
+            formControlName="ccmsUserId"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.selfRegistered" for="field_selfRegistered"
+            >Self Registered</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="selfRegistered"
+            id="field_selfRegistered"
+            data-cy="selfRegistered"
+            formControlName="selfRegistered"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ccmsHomeIsolationApp.homeIsolations.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ccmsHomeIsolationApp.homeIsolations.isolationsDetails"
+            for="field_isolationsDetails"
+            >Isolations Details</label
+          >
+          <select
+            class="form-control"
+            id="field_isolationsDetails"
+            data-cy="isolationsDetails"
+            name="isolationsDetails"
+            formControlName="isolationsDetails"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                isolationsDetailsOption.id === editForm.get('isolationsDetails')!.value?.id
+                  ? editForm.get('isolationsDetails')!.value
+                  : isolationsDetailsOption
+              "
+              *ngFor="let isolationsDetailsOption of isolationsDetailsCollection; trackBy: trackIsolationsDetailsById"
+            >
+              {{ isolationsDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

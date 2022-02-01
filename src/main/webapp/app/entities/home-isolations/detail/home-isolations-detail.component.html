@@ -1,0 +1,180 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="homeIsolations">
+      <h2 data-cy="homeIsolationsDetailsHeading">
+        <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.detail.title">Home Isolations</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ homeIsolations.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.icmrId">Icmr Id</span></dt>
+        <dd>
+          <span>{{ homeIsolations.icmrId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ homeIsolations.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ homeIsolations.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.latitude">Latitude</span></dt>
+        <dd>
+          <span>{{ homeIsolations.latitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.longitude">Longitude</span></dt>
+        <dd>
+          <span>{{ homeIsolations.longitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.email">Email</span></dt>
+        <dd>
+          <span>{{ homeIsolations.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.imageUrl">Image Url</span></dt>
+        <dd>
+          <span>{{ homeIsolations.imageUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.activated">Activated</span></dt>
+        <dd>
+          <span>{{ homeIsolations.activated }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.mobileNo">Mobile No</span></dt>
+        <dd>
+          <span>{{ homeIsolations.mobileNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.passwordHash">Password Hash</span></dt>
+        <dd>
+          <span>{{ homeIsolations.passwordHash }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.secondaryContactNo">Secondary Contact No</span></dt>
+        <dd>
+          <span>{{ homeIsolations.secondaryContactNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.aadharCardNo">Aadhar Card No</span></dt>
+        <dd>
+          <span>{{ homeIsolations.aadharCardNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'ccmsHomeIsolationApp.IsolationStatus.' + homeIsolations.status }}">{{ homeIsolations.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.age">Age</span></dt>
+        <dd>
+          <span>{{ homeIsolations.age }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.gender">Gender</span></dt>
+        <dd>
+          <span>{{ homeIsolations.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.stateId">State Id</span></dt>
+        <dd>
+          <span>{{ homeIsolations.stateId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.districtId">District Id</span></dt>
+        <dd>
+          <span>{{ homeIsolations.districtId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.talukaId">Taluka Id</span></dt>
+        <dd>
+          <span>{{ homeIsolations.talukaId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.cityId">City Id</span></dt>
+        <dd>
+          <span>{{ homeIsolations.cityId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.address">Address</span></dt>
+        <dd>
+          <span>{{ homeIsolations.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.pincode">Pincode</span></dt>
+        <dd>
+          <span>{{ homeIsolations.pincode }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.collectionDate">Collection Date</span></dt>
+        <dd>
+          <span>{{ homeIsolations.collectionDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.hospitalized">Hospitalized</span></dt>
+        <dd>
+          <span>{{ homeIsolations.hospitalized }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.hospitalId">Hospital Id</span></dt>
+        <dd>
+          <span>{{ homeIsolations.hospitalId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.addressLatitude">Address Latitude</span></dt>
+        <dd>
+          <span>{{ homeIsolations.addressLatitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.addressLongitude">Address Longitude</span></dt>
+        <dd>
+          <span>{{ homeIsolations.addressLongitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.currentLatitude">Current Latitude</span></dt>
+        <dd>
+          <span>{{ homeIsolations.currentLatitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.currentLongitude">Current Longitude</span></dt>
+        <dd>
+          <span>{{ homeIsolations.currentLongitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.hospitalizationDate">Hospitalization Date</span></dt>
+        <dd>
+          <span>{{ homeIsolations.hospitalizationDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.healthCondition">Health Condition</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'ccmsHomeIsolationApp.HealthCondition.' + homeIsolations.healthCondition }}">{{
+            homeIsolations.healthCondition
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.remarks">Remarks</span></dt>
+        <dd>
+          <span>{{ homeIsolations.remarks }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.ccmsUserId">Ccms User Id</span></dt>
+        <dd>
+          <span>{{ homeIsolations.ccmsUserId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.selfRegistered">Self Registered</span></dt>
+        <dd>
+          <span>{{ homeIsolations.selfRegistered }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ homeIsolations.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ homeIsolations.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.isolationsDetails">Isolations Details</span></dt>
+        <dd>
+          <div *ngIf="homeIsolations.isolationsDetails">
+            <a [routerLink]="['/isolations-details', homeIsolations.isolationsDetails?.id, 'view']">{{
+              homeIsolations.isolationsDetails?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/home-isolations', homeIsolations.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

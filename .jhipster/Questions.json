@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20220201085149",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "questions",
+  "fields": [
+    {
+      "fieldName": "question",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "questionDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "questionType",
+      "fieldType": "QuestionType",
+      "fieldValues": "FREETEXT (Text),MULTISELECT (MultiSelection),SINGLE (Single)"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Questions",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "questionsOptions",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "questionsOptions",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "assessmentAnswers",
+      "otherEntityRelationshipName": "questions",
+      "ownerSide": false,
+      "relationshipName": "assessmentAnswers",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

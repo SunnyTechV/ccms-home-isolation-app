@@ -1,0 +1,251 @@
+<div>
+  <h2 id="page-heading" data-cy="HomeIsolationsHeading">
+    <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.home.title">Home Isolations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-home-isolations"
+        [routerLink]="['/home-isolations/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.home.createLabel"> Create a new Home Isolations </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="homeIsolations?.length === 0">
+    <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.home.notFound">No homeIsolations found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="homeIsolations && homeIsolations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="icmrId">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.icmrId">Icmr Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.firstName">First Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.lastName">Last Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="latitude">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="longitude">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.email">Email</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="imageUrl">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.imageUrl">Image Url</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="activated">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.activated">Activated</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="mobileNo">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.mobileNo">Mobile No</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="passwordHash">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.passwordHash">Password Hash</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="secondaryContactNo">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.secondaryContactNo">Secondary Contact No</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="aadharCardNo">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.aadharCardNo">Aadhar Card No</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.status">Status</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="age">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.age">Age</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="gender">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.gender">Gender</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="stateId">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.stateId">State Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="districtId">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.districtId">District Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="talukaId">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.talukaId">Taluka Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cityId">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.cityId">City Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="address">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.address">Address</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pincode">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.pincode">Pincode</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="collectionDate">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.collectionDate">Collection Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospitalized">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.hospitalized">Hospitalized</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospitalId">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.hospitalId">Hospital Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="addressLatitude">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.addressLatitude">Address Latitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="addressLongitude">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.addressLongitude">Address Longitude</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="currentLatitude">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.currentLatitude">Current Latitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="currentLongitude">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.currentLongitude">Current Longitude</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospitalizationDate">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.hospitalizationDate">Hospitalization Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="healthCondition">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.healthCondition">Health Condition</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="remarks">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ccmsUserId">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.ccmsUserId">Ccms User Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="selfRegistered">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.selfRegistered">Self Registered</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.lastModified">Last Modified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isolationsDetails.id">
+            <span jhiTranslate="ccmsHomeIsolationApp.homeIsolations.isolationsDetails">Isolations Details</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let homeIsolations of homeIsolations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/home-isolations', homeIsolations.id, 'view']">{{ homeIsolations.id }}</a>
+          </td>
+          <td>{{ homeIsolations.icmrId }}</td>
+          <td>{{ homeIsolations.firstName }}</td>
+          <td>{{ homeIsolations.lastName }}</td>
+          <td>{{ homeIsolations.latitude }}</td>
+          <td>{{ homeIsolations.longitude }}</td>
+          <td>{{ homeIsolations.email }}</td>
+          <td>{{ homeIsolations.imageUrl }}</td>
+          <td>{{ homeIsolations.activated }}</td>
+          <td>{{ homeIsolations.mobileNo }}</td>
+          <td>{{ homeIsolations.passwordHash }}</td>
+          <td>{{ homeIsolations.secondaryContactNo }}</td>
+          <td>{{ homeIsolations.aadharCardNo }}</td>
+          <td jhiTranslate="{{ 'ccmsHomeIsolationApp.IsolationStatus.' + homeIsolations.status }}">{{ homeIsolations.status }}</td>
+          <td>{{ homeIsolations.age }}</td>
+          <td>{{ homeIsolations.gender }}</td>
+          <td>{{ homeIsolations.stateId }}</td>
+          <td>{{ homeIsolations.districtId }}</td>
+          <td>{{ homeIsolations.talukaId }}</td>
+          <td>{{ homeIsolations.cityId }}</td>
+          <td>{{ homeIsolations.address }}</td>
+          <td>{{ homeIsolations.pincode }}</td>
+          <td>{{ homeIsolations.collectionDate | formatMediumDatetime }}</td>
+          <td>{{ homeIsolations.hospitalized }}</td>
+          <td>{{ homeIsolations.hospitalId }}</td>
+          <td>{{ homeIsolations.addressLatitude }}</td>
+          <td>{{ homeIsolations.addressLongitude }}</td>
+          <td>{{ homeIsolations.currentLatitude }}</td>
+          <td>{{ homeIsolations.currentLongitude }}</td>
+          <td>{{ homeIsolations.hospitalizationDate | formatMediumDatetime }}</td>
+          <td jhiTranslate="{{ 'ccmsHomeIsolationApp.HealthCondition.' + homeIsolations.healthCondition }}">
+            {{ homeIsolations.healthCondition }}
+          </td>
+          <td>{{ homeIsolations.remarks }}</td>
+          <td>{{ homeIsolations.ccmsUserId }}</td>
+          <td>{{ homeIsolations.selfRegistered }}</td>
+          <td>{{ homeIsolations.lastModified | formatMediumDatetime }}</td>
+          <td>{{ homeIsolations.lastModifiedBy }}</td>
+          <td>
+            <div *ngIf="homeIsolations.isolationsDetails">
+              <a [routerLink]="['/isolations-details', homeIsolations.isolationsDetails?.id, 'view']">{{
+                homeIsolations.isolationsDetails?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/home-isolations', homeIsolations.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/home-isolations', homeIsolations.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(homeIsolations)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="homeIsolations && homeIsolations.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

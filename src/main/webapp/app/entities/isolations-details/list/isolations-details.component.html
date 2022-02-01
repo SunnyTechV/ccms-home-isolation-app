@@ -1,0 +1,146 @@
+<div>
+  <h2 id="page-heading" data-cy="IsolationsDetailsHeading">
+    <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.home.title">Isolations Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-isolations-details"
+        [routerLink]="['/isolations-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.home.createLabel"> Create a new Isolations Details </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="isolationsDetails?.length === 0">
+    <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.home.notFound">No isolationsDetails found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="isolationsDetails && isolationsDetails.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="isolationStartDate">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.isolationStartDate">Isolation Start Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isolationEndDate">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.isolationEndDate">Isolation End Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="referredDrName">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.referredDrName">Referred Dr Name</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="referredDrMobile">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.referredDrMobile">Referred Dr Mobile</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prescriptionUrl">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.prescriptionUrl">Prescription Url</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="reportUrl">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.reportUrl">Report Url</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="remarks">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="selfRegistered">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.selfRegistered">Self Registered</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastAssessment">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.lastAssessment">Last Assessment</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.lastModified">Last Modified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="ccmsHomeIsolationApp.isolationsDetails.lastModifiedBy">Last Modified By</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let isolationsDetails of isolationsDetails; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/isolations-details', isolationsDetails.id, 'view']">{{ isolationsDetails.id }}</a>
+          </td>
+          <td>{{ isolationsDetails.isolationStartDate | formatMediumDatetime }}</td>
+          <td>{{ isolationsDetails.isolationEndDate | formatMediumDatetime }}</td>
+          <td>{{ isolationsDetails.referredDrName }}</td>
+          <td>{{ isolationsDetails.referredDrMobile }}</td>
+          <td>{{ isolationsDetails.prescriptionUrl }}</td>
+          <td>{{ isolationsDetails.reportUrl }}</td>
+          <td>{{ isolationsDetails.remarks }}</td>
+          <td>{{ isolationsDetails.selfRegistered }}</td>
+          <td>{{ isolationsDetails.lastAssessment | formatMediumDatetime }}</td>
+          <td>{{ isolationsDetails.lastModified | formatMediumDatetime }}</td>
+          <td>{{ isolationsDetails.lastModifiedBy }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/isolations-details', isolationsDetails.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/isolations-details', isolationsDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(isolationsDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="isolationsDetails && isolationsDetails.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>
